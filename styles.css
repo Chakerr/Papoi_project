@@ -1,0 +1,176 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(145deg, #0a1a10 0%, #162a1c 50%, #1e3526 100%);
+  overflow: hidden;
+}
+
+#root {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button,
+select,
+input,
+textarea {
+  font-family: inherit;
+}
+
+.phone {
+  width: 100%;
+  max-width: 430px;
+  height: 100vh;
+  height: 100dvh;
+  background: #F5F5F5;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  border-radius: 0;
+}
+
+@media (min-width: 431px) {
+  .phone {
+    max-height: 844px;
+    border-radius: 44px;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, .6), 0 0 0 1px rgba(255, 255, 255, .06) inset;
+  }
+}
+
+.sc {
+  overflow-y: auto;
+}
+
+.sc::-webkit-scrollbar {
+  width: 0;
+}
+
+.leaflet-control-zoom {
+  border: none !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, .2) !important;
+  border-radius: 12px !important;
+  overflow: hidden;
+}
+
+.leaflet-control-zoom a {
+  background: white !important;
+  color: #254336 !important;
+  border: none !important;
+  font-size: 18px !important;
+  line-height: 32px !important;
+  width: 32px !important;
+  height: 32px !important;
+  font-weight: 600 !important;
+}
+
+.leaflet-control-zoom a:hover {
+  background: #F5F5F5 !important;
+}
+
+.leaflet-control-attribution {
+  display: none !important;
+}
+
+.leaflet-container {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeSlideOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1
+  }
+
+  50% {
+    opacity: .4
+  }
+}
+
+@keyframes checkPop {
+  0% {
+    transform: scale(0);
+    opacity: 0
+  }
+
+  70% {
+    transform: scale(1.15)
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1
+  }
+}
+
+.screen-in {
+  animation: fadeSlideIn .28s cubic-bezier(.22, .68, 0, 1.2) both;
+}
+
+.spinner-ring {
+  animation: spin .75s linear infinite;
+}
+
+.pulse {
+  animation: pulse 1.8s ease infinite;
+}
+
+.check-pop {
+  animation: checkPop .4s ease both;
+}
+
+.tap:active {
+  opacity: .72;
+  transform: scale(.97);
+}
+
+button {
+  transition: opacity .12s, transform .12s;
+}
+
+button:active {
+  opacity: .75;
+  transform: scale(.97);
+}
