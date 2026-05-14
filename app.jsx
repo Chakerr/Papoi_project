@@ -323,100 +323,100 @@ function RecHome() {
   );
 }
 
-function MonitorContenedor({cont, onBack}){
+function MonitorContenedor({ cont, onBack }) {
   const anim = cont.fill;
-  const col = anim>=90?P.crit:anim>=75?P.warn:anim>=50?P.orange:P.green;
-  const msg = anim>=90?'RECOLECCIÓN URGENTE':anim>=75?'PROGRAMAR RECOLECCIÓN':anim>=50?'EN OBSERVACIÓN':'SIN NOVEDAD';
-  const msgCol = col;
+  const col = anim >= 90 ? P.crit : anim >= 75 ? P.warn : anim >= 50 ? P.orange : P.green;
+  const msg = anim >= 90 ? 'RECOLECCIÓN URGENTE' : anim >= 75 ? 'PROGRAMAR RECOLECCIÓN' : anim >= 50 ? 'EN OBSERVACIÓN' : 'SIN NOVEDAD';
+  const msgCol = anim >= 90 ? P.crit : anim >= 75 ? P.warn : anim >= 50 ? P.orange : P.green;
 
   return (
-    <div className="sc screen-in" style={{flex:1,overflowY:'auto',background:P.bg}}>
-      <SectionHeader title="Monitor de Contenedor" sub={cont.addr} onBack={onBack}/>
+    <div className="sc screen-in" style={{ flex: 1, overflowY: 'auto', background: P.bg }}>
+      <SectionHeader title="Monitor de Contenedor" sub={cont.addr} onBack={onBack} />
 
       {/* Visualización del contenedor */}
-      <div style={{background:'#0D1410',padding:'24px 0',display:'flex',justifyContent:'center',alignItems:'center',position:'relative'}}>
-        <div style={{position:'relative',width:90,height:140}}>
+      <div style={{ background: '#0D1410', padding: '24px 0', display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative' }}>
+        <div style={{ position: 'relative', width: 90, height: 140 }}>
           {/* Cuerpo contenedor */}
-          <div style={{position:'absolute',bottom:0,left:0,right:0,height:120,borderRadius:'4px 4px 8px 8px',background:'#1A2420',border:`1.5px solid #243329`,overflow:'hidden'}}>
+          <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 120, borderRadius: '4px 4px 8px 8px', background: '#1A2420', border: `1.5px solid #243329`, overflow: 'hidden' }}>
             {/* Relleno animado */}
-            <div style={{position:'absolute',bottom:0,left:0,right:0,height:`${anim}%`,background:col,opacity:.85,transition:'height .4s ease'}}/>
-            <div style={{position:'absolute',inset:0,display:'flex',alignItems:'center',justifyContent:'center'}}>
-              <span style={{fontSize:13,fontWeight:700,color:anim>20?'#0D1410':'#6B8F7A'}}>{anim.toFixed(0)}%</span>
+            <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: `${anim}%`, background: col, opacity: .85, transition: 'height .4s ease' }} />
+            <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <span style={{ fontSize: 13, fontWeight: 700, color: anim > 20 ? '#0D1410' : '#6B8F7A' }}>{anim.toFixed(0)}%</span>
             </div>
           </div>
           {/* Tapa */}
-          <div style={{position:'absolute',top:0,left:-4,right:-4,height:16,borderRadius:4,background:'#1F2B26',border:'1.5px solid #243329'}}/>
+          <div style={{ position: 'absolute', top: 0, left: -4, right: -4, height: 16, borderRadius: 4, background: '#1F2B26', border: '1.5px solid #243329' }} />
           {/* Asa */}
-          <div style={{position:'absolute',top:-8,left:'50%',transform:'translateX(-50%)',width:18,height:10,borderRadius:'4px 4px 0 0',background:'#243329'}}/>
+          <div style={{ position: 'absolute', top: -8, left: '50%', transform: 'translateX(-50%)', width: 18, height: 10, borderRadius: '4px 4px 0 0', background: '#243329' }} />
           {/* Ruedas */}
-          <div style={{position:'absolute',bottom:-6,left:8,width:14,height:14,borderRadius:'50%',background:'#1F2B26',border:'1.5px solid #243329'}}/>
-          <div style={{position:'absolute',bottom:-6,right:8,width:14,height:14,borderRadius:'50%',background:'#1F2B26',border:'1.5px solid #243329'}}/>
+          <div style={{ position: 'absolute', bottom: -6, left: 8, width: 14, height: 14, borderRadius: '50%', background: '#1F2B26', border: '1.5px solid #243329' }} />
+          <div style={{ position: 'absolute', bottom: -6, right: 8, width: 14, height: 14, borderRadius: '50%', background: '#1F2B26', border: '1.5px solid #243329' }} />
         </div>
 
         {/* Chip estado */}
-        <div style={{position:'absolute',top:14,right:14,background:col,borderRadius:8,padding:'4px 10px'}}>
-          <span style={{fontSize:10,fontWeight:700,color:'white'}}>● EN CURSO</span>
+        <div style={{ position: 'absolute', top: 14, right: 14, background: col, borderRadius: 8, padding: '4px 10px' }}>
+          <span style={{ fontSize: 10, fontWeight: 700, color: 'white' }}>● EN CURSO</span>
         </div>
       </div>
 
-      <div style={{padding:'16px 16px 8px'}}>
+      <div style={{ padding: '16px 16px 8px' }}>
         {/* Card principal */}
-        <Card style={{marginBottom:12}}>
-          <div style={{display:'flex',justifyContent:'space-between',alignItems:'flex-start',marginBottom:10}}>
+        <Card style={{ marginBottom: 12 }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 10 }}>
             <div>
-              <div style={{fontSize:15,fontWeight:700,color:P.text}}>{cont.loc} · {cont.id.toUpperCase()}</div>
-              <div style={{fontSize:11,color:P.textSub,marginTop:2}}>{cont.addr}</div>
+              <div style={{ fontSize: 15, fontWeight: 700, color: P.text }}>{cont.loc} · {cont.id.toUpperCase()}</div>
+              <div style={{ fontSize: 11, color: P.textSub, marginTop: 2 }}>{cont.addr}</div>
             </div>
-            <img src={cont.rec?'assets/reciclar.png':'assets/compartimiento.png'} style={{width:32,height:32,objectFit:'contain'}}/>
+            <img src={cont.rec ? 'assets/reciclar.png' : 'assets/compartimiento.png'} style={{ width: 32, height: 32, objectFit: 'contain' }} />
           </div>
 
-          <div style={{display:'flex',alignItems:'baseline',gap:8,marginBottom:4}}>
-            <span style={{fontSize:42,fontWeight:800,color:col,lineHeight:1}}>{anim.toFixed(1)}%</span>
-            <span style={{fontSize:12,color:P.textSub}}>llenado</span>
+          <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginBottom: 4 }}>
+            <span style={{ fontSize: 42, fontWeight: 800, color: col, lineHeight: 1 }}>{anim.toFixed(1)}%</span>
+            <span style={{ fontSize: 12, color: P.textSub }}>llenado</span>
           </div>
-          <div style={{fontSize:12,fontWeight:700,color:msgCol,marginBottom:12}}>{msg}</div>
+          <div style={{ fontSize: 12, fontWeight: 700, color: msgCol, marginBottom: 12 }}>{msg}</div>
 
-          <FillBar val={anim} h={10}/>
-          <div style={{display:'flex',justifyContent:'space-between',marginTop:4}}>
-            {[['0%',0],['50%',50],['75%',75],['90%',90],['100%',100]].map(([l,v])=>(
-              <span key={l} style={{fontSize:9,color:P.textSub}}>{l}</span>
+          <FillBar val={anim} h={10} />
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 4 }}>
+            {[['0%', 0], ['50%', 50], ['75%', 75], ['90%', 90], ['100%', 100]].map(([l, v]) => (
+              <span key={l} style={{ fontSize: 9, color: P.textSub }}>{l}</span>
             ))}
           </div>
         </Card>
 
         {/* Info del contenedor */}
-        <Card style={{marginBottom:12,padding:'14px 16px'}}>
-          <div style={{fontSize:11,fontWeight:700,color:P.textSub,textTransform:'uppercase',letterSpacing:.5,marginBottom:10}}>Detalles</div>
+        <Card style={{ marginBottom: 12, padding: '14px 16px' }}>
+          <div style={{ fontSize: 11, fontWeight: 700, color: P.textSub, textTransform: 'uppercase', letterSpacing: .5, marginBottom: 10 }}>Detalles</div>
           {[
             ['Tipo de residuo', cont.type],
-            ['Aprovechable', cont.rec?'Sí ♻':'No'],
+            ['Aprovechable', cont.rec ? 'Sí ♻' : 'No'],
             ['Zona', cont.loc],
             ['ID Contenedor', cont.id.toUpperCase()],
-          ].map(([l,v])=>(
-            <div key={l} style={{display:'flex',justifyContent:'space-between',padding:'8px 0',borderBottom:`1px solid ${P.border}`}}>
-              <span style={{fontSize:12,color:P.textSub}}>{l}</span>
-              <span style={{fontSize:12,fontWeight:600,color:P.text}}>{v}</span>
+          ].map(([l, v]) => (
+            <div key={l} style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 0', borderBottom: `1px solid ${P.border}` }}>
+              <span style={{ fontSize: 12, color: P.textSub }}>{l}</span>
+              <span style={{ fontSize: 12, fontWeight: 600, color: P.text }}>{v}</span>
             </div>
           ))}
         </Card>
 
         {/* Historial simulado */}
-        <Card style={{marginBottom:16,padding:'14px 16px'}}>
-          <div style={{fontSize:11,fontWeight:700,color:P.textSub,textTransform:'uppercase',letterSpacing:.5,marginBottom:10}}>Últimas lecturas</div>
+        <Card style={{ marginBottom: 16, padding: '14px 16px' }}>
+          <div style={{ fontSize: 11, fontWeight: 700, color: P.textSub, textTransform: 'uppercase', letterSpacing: .5, marginBottom: 10 }}>Últimas lecturas</div>
           {[
-            {hora:'12:45',pct:cont.fill,col:col},
-            {hora:'11:30',pct:Math.max(0,cont.fill-8),col:P.warn},
-            {hora:'10:15',pct:Math.max(0,cont.fill-18),col:P.green},
-            {hora:'09:00',pct:Math.max(0,cont.fill-30),col:P.green},
-          ].map((r,i)=>(
-            <div key={i} style={{display:'flex',justifyContent:'space-between',alignItems:'center',padding:'7px 0',borderBottom:`1px solid ${P.border}`}}>
-              <span style={{fontSize:11,color:P.textSub}}>{r.hora}</span>
-              <div style={{flex:1,margin:'0 12px'}}>
-                <div style={{height:4,background:'#EBEBEB',borderRadius:2}}>
-                  <div style={{height:'100%',width:`${r.pct}%`,background:r.col,borderRadius:2}}/>
+            { hora: '12:45', pct: cont.fill, col: col },
+            { hora: '11:30', pct: Math.max(0, cont.fill - 8), col: P.warn },
+            { hora: '10:15', pct: Math.max(0, cont.fill - 18), col: P.green },
+            { hora: '09:00', pct: Math.max(0, cont.fill - 30), col: P.green },
+          ].map((r, i) => (
+            <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '7px 0', borderBottom: `1px solid ${P.border}` }}>
+              <span style={{ fontSize: 11, color: P.textSub }}>{r.hora}</span>
+              <div style={{ flex: 1, margin: '0 12px' }}>
+                <div style={{ height: 4, background: '#EBEBEB', borderRadius: 2 }}>
+                  <div style={{ height: '100%', width: `${r.pct}%`, background: r.col, borderRadius: 2 }} />
                 </div>
               </div>
-              <span style={{fontSize:11,fontWeight:600,color:r.col}}>{r.pct}%</span>
+              <span style={{ fontSize: 11, fontWeight: 600, color: r.col }}>{r.pct}%</span>
             </div>
           ))}
         </Card>
@@ -425,31 +425,31 @@ function MonitorContenedor({cont, onBack}){
   );
 }
 
-function RecMapa(){
-  const [selCont,setSelCont]=useState(null);
-  const [monitor,setMonitor]=useState(null);
-  if(monitor) return <MonitorContenedor cont={monitor} onBack={()=>setMonitor(null)}/>;
+function RecMapa() {
+  const [selCont, setSelCont] = useState(null);
+  const [monitor, setMonitor] = useState(null);
+  if (monitor) return <MonitorContenedor cont={monitor} onBack={() => setMonitor(null)} />;
   return (
-    <div style={{flex:1,display:'flex',flexDirection:'column',overflow:'hidden'}}>
+    <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
       <MapView key="rec-map" conts={CONTAINERS} routeIds={ROUTE_IDS}
-        selId={selCont?.id} onContClick={c=>setSelCont(p=>p?.id===c.id?null:c)}
-        center={[4.575,-74.155]} zoom={13}/>
-      {selCont&&(
-        <div style={{flexShrink:0,background:P.card,padding:'14px 16px',borderTop:`1px solid ${P.border}`,boxShadow:'0 -4px 16px rgba(0,0,0,.07)'}}>
-          <div style={{display:'flex',justifyContent:'space-between',alignItems:'flex-start'}}>
+        selId={selCont?.id} onContClick={c => setSelCont(p => p?.id === c.id ? null : c)}
+        center={[4.575, -74.155]} zoom={13} />
+      {selCont && (
+        <div style={{ flexShrink: 0, background: P.card, padding: '14px 16px', borderTop: `1px solid ${P.border}`, boxShadow: '0 -4px 16px rgba(0,0,0,.07)' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
             <div>
-              <div style={{fontSize:14,fontWeight:700,color:P.text}}>{selCont.loc}</div>
-              <div style={{fontSize:11,color:P.textSub,marginTop:1}}>{selCont.addr}</div>
+              <div style={{ fontSize: 14, fontWeight: 700, color: P.text }}>{selCont.loc}</div>
+              <div style={{ fontSize: 11, color: P.textSub, marginTop: 1 }}>{selCont.addr}</div>
             </div>
-            <div style={{display:'flex',gap:8,alignItems:'center'}}>
-              <img src={selCont.rec?'assets/reciclar.png':'assets/compartimiento.png'} style={{width:28,height:28,objectFit:'contain'}}/>
-              {selCont.rec&&<Chip label="♻ Reciclaje" color={P.green}/>}
-              <button onClick={()=>setSelCont(null)} style={{background:'#F0F0F0',border:'none',borderRadius:10,width:28,height:28,cursor:'pointer',fontSize:16}}>×</button>
+            <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+              <img src={selCont.rec ? 'assets/reciclar.png' : 'assets/compartimiento.png'} style={{ width: 28, height: 28, objectFit: 'contain' }} />
+              {selCont.rec && <Chip label="♻ Reciclaje" color={P.green} />}
+              <button onClick={() => setSelCont(null)} style={{ background: '#F0F0F0', border: 'none', borderRadius: 10, width: 28, height: 28, cursor: 'pointer', fontSize: 16 }}>×</button>
             </div>
           </div>
-          <div style={{marginTop:10}}><FillBar val={selCont.fill}/></div>
-          <div style={{fontSize:11,color:P.textSub,marginTop:4}}>{selCont.fill}% lleno · {selCont.type}</div>
-          <button onClick={()=>setMonitor(selCont)} style={{width:'100%',marginTop:12,background:P.dark,color:'white',border:'none',borderRadius:14,padding:'11px',fontSize:13,fontWeight:600,cursor:'pointer'}}>
+          <div style={{ marginTop: 10 }}><FillBar val={selCont.fill} /></div>
+          <div style={{ fontSize: 11, color: P.textSub, marginTop: 4 }}>{selCont.fill}% lleno · {selCont.type}</div>
+          <button onClick={() => setMonitor(selCont)} style={{ width: '100%', marginTop: 12, background: P.dark, color: 'white', border: 'none', borderRadius: 14, padding: '11px', fontSize: 13, fontWeight: 600, cursor: 'pointer' }}>
             Ver monitor en tiempo real →
           </button>
         </div>
@@ -644,7 +644,65 @@ function TrHome() {
   );
 }
 
-
+function TrMapa() {
+  const [sel, setSel] = useState(null);
+  const [selCont, setSelCont] = useState(null);
+  const [monitor, setMonitor] = useState(null);
+  if (monitor) return <MonitorContenedor cont={monitor} onBack={() => setMonitor(null)} />;
+  return (
+    <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+      <div style={{ padding: '10px 14px', background: P.card, borderBottom: `1px solid ${P.border}`, flexShrink: 0 }}>
+        <select value={sel?.id || ''} onChange={e => {
+          const found = TRANSPORT_ROUTES.find(r => r.id === e.target.value) || null;
+          setSel(found); setSelCont(null);
+        }}
+          style={{
+            width: '100%', padding: '10px 14px', borderRadius: 14, border: `1.5px solid ${P.border}`,
+            fontSize: 13, fontWeight: 600, color: sel ? P.dark : P.textSub, background: P.card,
+            outline: 'none', cursor: 'pointer', appearance: 'none',
+            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23254336' stroke-width='2.5'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E")`,
+            backgroundRepeat: 'no-repeat', backgroundPosition: 'right 14px center'
+          }}>
+          <option value=''>Selecciona una ruta…</option>
+          {TRANSPORT_ROUTES.map(r => (
+            <option key={r.id} value={r.id}>{r.id} · Zona {r.zone} · {r.driver}</option>
+          ))}
+        </select>
+        {sel && (
+          <div style={{ display: 'flex', gap: 8, marginTop: 8, alignItems: 'center' }}>
+            <Chip label={sel.status.toUpperCase()} color={sel.status === 'en curso' ? P.green : sel.status === 'completada' ? P.sage : P.warn} />
+            <span style={{ fontSize: 11, color: P.textSub }}>{sel.stops} paradas · {sel.kg.toLocaleString()} kg</span>
+          </div>
+        )}
+      </div>
+      <MapView key={`tr-map-${sel?.id || 'all'}`} conts={CONTAINERS}
+        routeIds={sel ? ROUTES_BY_TR[sel.id] || [] : []}
+        selId={selCont?.id}
+        onContClick={c => setSelCont(p => p?.id === c.id ? null : c)}
+        center={[4.65, -74.09]} zoom={11} />
+      {selCont && (
+        <div style={{ flexShrink: 0, background: P.card, padding: '14px 16px', borderTop: `1px solid ${P.border}`, boxShadow: '0 -4px 16px rgba(0,0,0,.07)' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+            <div>
+              <div style={{ fontSize: 14, fontWeight: 700, color: P.text }}>{selCont.loc}</div>
+              <div style={{ fontSize: 11, color: P.textSub, marginTop: 1 }}>{selCont.addr}</div>
+            </div>
+            <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+              <img src={selCont.rec ? 'assets/reciclar.png' : 'assets/compartimiento.png'} style={{ width: 28, height: 28, objectFit: 'contain' }} />
+              {selCont.rec && <Chip label="♻ Reciclaje" color={P.green} />}
+              <button onClick={() => setSelCont(null)} style={{ background: '#F0F0F0', border: 'none', borderRadius: 10, width: 28, height: 28, cursor: 'pointer', fontSize: 16 }}>×</button>
+            </div>
+          </div>
+          <div style={{ marginTop: 10 }}><FillBar val={selCont.fill} /></div>
+          <div style={{ fontSize: 11, color: P.textSub, marginTop: 4 }}>{selCont.fill}% lleno · {selCont.type}</div>
+          <button onClick={() => setMonitor(selCont)} style={{ width: '100%', marginTop: 12, background: P.dark, color: 'white', border: 'none', borderRadius: 14, padding: '11px', fontSize: 13, fontWeight: 600, cursor: 'pointer' }}>
+            Ver monitor en tiempo real →
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
 
 function TrFlota() {
   return (
