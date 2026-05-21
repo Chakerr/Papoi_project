@@ -221,7 +221,7 @@ function LoginScreen({ onLogin }) {
     <div className="screen-in" style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', background: P.bg, overflowY: 'auto', padding: '0 24px 32px' }}>
       {/* Hero */}
       <div style={{ width: '100%', background: `linear-gradient(160deg,${P.dark} 0%,#2E5A44 100%)`, borderRadius: '0 0 32px 32px', padding: '48px 24px 40px', marginBottom: 32, textAlign: 'center', marginLeft: -24, marginRight: -24, width: 'calc(100% + 48px)' }}>
-        <img src="assets/logo1.svg" style={{ width: 160, height: 160, display: 'block', margin: '0 auto -20px' }} />
+        <img src="assets/logo4.png" style={{ width: 160, height: 160, display: 'block', margin: '0 auto -20px' }} />
         <div style={{ fontSize: 28, fontWeight: 800, color: 'white', letterSpacing: 2 }}>PAPOI</div>
         <div style={{ fontSize: 11, color: 'rgba(255,255,255,.5)', marginTop: 5, fontWeight: 400, letterSpacing: 1 }}>Bogotá · Residuos Inteligentes</div>
       </div>
